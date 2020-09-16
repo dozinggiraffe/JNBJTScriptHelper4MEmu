@@ -58,6 +58,16 @@
   <ItemGroup>
     <Compile Include="BitmapHelper.cs" />
     <Compile Include="CMDHelper.cs" />
+    <Compile Include="CustomUI\AlphaBlendTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomUI\AlphaUITextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomUI\AlphaUITextBox.Designer.cs">
+      <DependentUpon>AlphaUITextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomUI\win32.cs" />
     <Compile Include="IniUtility.cs" />
     <Compile Include="MessageTipForm.cs">
       <SubType>Form</SubType>
@@ -73,6 +83,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CustomUI\AlphaUITextBox.resx">
+      <DependentUpon>AlphaUITextBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MessageTipForm.resx">
       <DependentUpon>MessageTipForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -105,6 +118,22 @@
   <ItemGroup>
     <Content Include="ICON.ico" />
     <None Include="Resources\sample.png" />
+    <None Include="Resources\04.png" />
+    <None Include="Resources\07.png" />
+    <None Include="Resources\lostFocusSample_portrait.png" />
+    <None Include="Resources\lostFocusSample_landscape.png" />
+    <None Include="Resources\lostFocusSample.png" />
+    <None Include="Resources\12.png" />
+    <None Include="Resources\11.png" />
+    <None Include="Resources\10.png" />
+    <None Include="Resources\09.png" />
+    <None Include="Resources\08.png" />
+    <None Include="Resources\06.png" />
+    <None Include="Resources\05.png" />
+    <None Include="Resources\03.png" />
+    <None Include="Resources\02.png" />
+    <None Include="Resources\01.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

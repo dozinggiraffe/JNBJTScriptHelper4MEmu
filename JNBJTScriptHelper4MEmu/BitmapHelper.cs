@@ -14,8 +14,8 @@ namespace JNBJTScriptHelper4MEmu
         /// <summary>
         /// 通过FileStream 来打开文件，这样就可以实现不锁定Image文件，到时可以让多用户同时访问Image文件
         /// </summary>
-        /// <param name="path"></param>
-        /// <returns></returns>
+        /// <param name="path">文件路径</param>
+        /// <returns>返回值为图像类</returns>
         public static Bitmap ReadImageFile(string path)
         {
             using (FileStream fs = File.OpenRead(path)) //OpenRead
@@ -42,7 +42,7 @@ namespace JNBJTScriptHelper4MEmu
         /// <returns>
         /// cropped image
         /// </returns>
-        public static Bitmap Crop(Bitmap sourceImage, Rectangle selection)
+        public static Bitmap Crop(Bitmap sourceImage, Rectangle selection, bool disposeSource = true)
         {
             Bitmap newImage = new System.Drawing.Bitmap(selection.Width, selection.Height);
             using (System.Drawing.Graphics g = System.Drawing.Graphics.FromImage(newImage))
@@ -52,7 +52,9 @@ namespace JNBJTScriptHelper4MEmu
                 g.Clear(System.Drawing.Color.Transparent);
                 g.DrawImage(sourceImage, new System.Drawing.Rectangle(0, 0, selection.Width, selection.Height), selection,
                     System.Drawing.GraphicsUnit.Pixel);
-                sourceImage.Dispose();
+
+                if (disposeSource)
+                    sourceImage.Dispose();
                 return newImage;
             }
         }
